@@ -1,7 +1,6 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "",
   "license": "ISC",
   "author": "",
   "type": "module",
@@ -15,7 +14,12 @@
     "express": "^5.2.1",
     "poll": "^3.2.2"
   },
+<<<<<<< HEAD
   "devDependencies": {
     "@types/node": "^25.0.8"
   }
+=======
+  "keywords": [],
+  "description": ""
+>>>>>>> e97a463f195de5dc6c637127c63129d176946fbb
 }

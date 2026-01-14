@@ -1,6 +1,12 @@
-export async function getLines() {
-  const res = await fetch("/data.json"); // agora vai funcionar
-  if (!res.ok) throw new Error("Erro ao buscar linhas");
-  return res.json();
-}
 
+import axios from "axios";
+
+const api = axios.create({
+  baseURL: "http://localhost:3000",
+});
+
+export async function getLines() {
+  const response = await api.get("/linhas");
+  return response.data;
+}
+export { api };
