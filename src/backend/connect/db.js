@@ -1,9 +1,8 @@
 import { Pool } from 'pg';
-import dotenv from "dotenv";
+import "dotenv/config";
 
-dotenv.config();
 // Configurações de conexão (substitua pelos meus dados)
-const pool = new Pool({
+export const pool = new Pool({
   user: process.env.DB_USER,
   host: process.env.DB_HOST,
   database: process.env.DB_NAME,
@@ -11,6 +10,6 @@ const pool = new Pool({
   port: Number(process.env.DB_PORT),
 });
 
+console.log(pool.options.database);
 
-export default pool;
     
