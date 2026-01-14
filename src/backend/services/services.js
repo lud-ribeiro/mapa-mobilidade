@@ -1,10 +1,6 @@
 import express from "express";
 import cors from "cors"
 
-
-dotenv.config();
-
-
 const porta =3000;
 console.log(porta);
 
