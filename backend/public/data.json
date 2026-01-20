@@ -1,0 +1,28 @@
+[
+  {
+    "id": 1,
+    "name": "Linha 101",
+    "lat": -15.7942,
+    "lng": -47.8822,
+    "stops": [
+      { "name": "Parada Central", "lat": -15.7935, "lng": -47.8815 },
+      { "name": "Parada Rodoviária", "lat": -15.7950, "lng": -47.8830 }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Linha 102",
+    "lat": -15.7801,
+    "lng": -47.9292,
+    "stops": [
+      { "name": "Parada Norte", "lat": -15.7790, "lng": -47.9280 },
+      { "name": "Parada Sul", "lat": -15.7815, "lng": -47.9305 }
+    ]
+  }
+]
+
+
+
+  
+   
+  
