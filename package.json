@@ -1,0 +1,26 @@
+{
+  "name": "mapa-mobilidade",
+  "version": "1.0.0",
+  "description": "projeto semob",
+  "homepage": "https://github.com/lud-ribeiro/mapa-mobilidade#readme",
+  "bugs": {
+    "url": "https://github.com/lud-ribeiro/mapa-mobilidade/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lud-ribeiro/mapa-mobilidade.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix backend\" \"npm run dev --prefix frontend\"",
+    "dev:back": "npm run dev --prefix backend",
+    "dev:front": "npm run dev --prefix frontend"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

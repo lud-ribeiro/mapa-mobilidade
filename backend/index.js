@@ -1,38 +1,33 @@
 import express from "express";
 import cors from "cors";
-import "dotenv";
+import dotenv from "dotenv";
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 
-// Importe a conexão do banco e as rotas
-import "./connect/db.js"; 
-import linhasRoutes from "./routes/linhas.Routes.js";
+// Mantenha apenas UM import de rotas (o correto conforme sua pasta)
+import linhasRoutes from './routes/linhas.Routes.js';
+
+// Mova a inicialização do app para cá (antes de usá-lo)
+const app = express();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const app = express();
+// Importe a conexão do banco
+import "./connect/db.js";
 
 app.use(cors());
 app.use(express.json());
 
-// Servir arquivos estáticos do frontend
+// Agora o app.use vai funcionar porque o 'app' já foi definido acima
+app.use('/api', linhasRoutes);
+
+// Servir arquivos estáticos
 app.use(express.static(join(__dirname, 'public')));
 
-// Use as rotas que você criou
-app.use("/linhas", linhasRoutes);
-
-app.get("/api", (req, res) => {
-  res.json({ mensagem: "🚀 Backend rodando com sucesso!" });
-});
-
-// Servir o index.html para todas as outras rotas (SPA)
-app.use((req, res) => {
-  res.sendFile(join(__dirname, 'public', 'index.html'));
-});
-
-const PORT = process.env.PORT || 3001;
-
+// Não esqueça de garantir que o servidor tenha um listen no final
+const PORT = 3000;
 app.listen(PORT, () => {
-  console.log(`🚀 Aplicação rodando em http://localhost:${PORT}`);
+    console.log(`Servidor rodando na porta ${PORT}`);
 });
+

@@ -1,6 +1,6 @@
-export async function getLines() {
-  const res = await fetch("/data.json"); // agora vai funcionar
-  if (!res.ok) throw new Error("Erro ao buscar linhas");
-  return res.json();
-}
+import { api } from "./api";
 
+export async function getLines() {
+  const res = await api.get("/linhas");
+  return res.data;
+}

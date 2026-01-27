@@ -1,10 +1,17 @@
-import pool from '../connect/db.js'; // Supondo que seu db.js exporta a conexão
+import pool from "../connect/db.js"
 
-const buscarTodasAsLinhas = async () => {
-    // Exemplo para PostgreSQL/MySQL (ajuste a query conforme sua tabela)
-    const sql = "SELECT * FROM linhas"; 
-    const resultado = await pool.query(sql); 
-    return resultado.rows; // ou apenas 'resultado' dependendo do seu banco
-};
+const buscarLinhas = async () => {
+  const sql = `
+    SELECT 
+      l.cd_linha AS id,
+      l.tx_linha AS nome
+    FROM dados_mobilidade.tab_linha l
+    ORDER BY l.cd_linha
+  `
 
-export default { buscarTodasAsLinhas };
+  const result = await pool.query(sql)
+  return result.rows
+}
+
+export default { buscarLinhas }
+

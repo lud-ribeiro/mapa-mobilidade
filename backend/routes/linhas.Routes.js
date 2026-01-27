@@ -1,11 +1,29 @@
 
-import express from 'express';
-import linhasController from '../controler/linhasController.js'; // Verifique se o caminho e a extensão .js estão corretos
+import { Router } from "express"
+import linhasService from "../services/linhasService.js"
 
-const router = express.Router();
+const router = Router()
 
-// Defina a rota. Quando você acessar /linhas, ele chamará o controller
-router.get("/", linhasController.listarLinhas);
+
+router.get("/linhas", async (req, res) => {
+  try {
+    const linhas = await linhasService.buscarLinhas()
+   res.json(linhas)
+  } catch (error) {
+    console.error(error)
+    res.status(500).json({ erro: "Erro ao buscar linhas" })
+  }
+})
+ 
+router.get('/teste', (req, res) => {
+    res.json({ 
+        status: "Sucesso!", 
+        mensagem: "O backend está funcionando e pronto para receber dados." 
+    });
+});
 
 export default router;
+
+
+
 
